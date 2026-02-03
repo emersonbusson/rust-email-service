@@ -57,11 +57,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          fetch-tags: true
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Conventional commits check
         uses: cocogitto/cocogitto-action@v4
         with:
           command: check
-          args: --from-latest-tag
+          args: ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}
