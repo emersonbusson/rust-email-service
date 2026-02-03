@@ -49,3 +49,17 @@ jobs:
 
       - name: Linting
         run: cargo clippy -- -D warnings
+
+  cog_check_job:
+    name: Check Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Conventional commits check
+        uses: cocogitto/cocogitto-action@v4
+        with:
+          command: check
+          args: ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}
