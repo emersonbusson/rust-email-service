@@ -49,3 +49,16 @@ jobs:
 
       - name: Linting
         run: cargo clippy -- -D warnings
+
+  check_commits:
+    name: Check Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Conventional commits check
+        uses: cocogitto/cocogitto-action@v3
+        with:
+          check-latest-tag-only: true
