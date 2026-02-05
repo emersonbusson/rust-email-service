@@ -1,0 +1,12 @@
+{
+  // Rust: Use rust-analyzer (which uses rustfmt under the hood)
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true
+  },
+  // TOML: Use the Even Better TOML extension
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.formatOnSave": true
+  }
+}
